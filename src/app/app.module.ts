@@ -10,11 +10,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { BirdModalPage } from './bird-modal/bird-modal.page';
+import { BirdModalPageModule } from './bird-modal/bird-modal.module';
 
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, BirdModalPage],
+  entryComponents: [BirdModalPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [
     StatusBar,

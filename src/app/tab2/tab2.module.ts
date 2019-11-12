@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
+import { BirdModalPageModule } from '../bird-modal/bird-modal.module';
 
 
 @NgModule({
