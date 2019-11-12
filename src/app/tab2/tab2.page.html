@@ -17,7 +17,11 @@
           <ion-textarea type="text" formControlName="notes" ></ion-textarea>
         </ion-item>
         <!-- TODO DATE PICKER JA RARITY RADIO -->
-        <!-- Observation interface? tallenna local -->
+         <ion-item>
+          <ion-label>Time of observation</ion-label>
+          <ion-datetime displayFormat="D MMM YYYY H:mm" min="1997" max="2030" formControlName="date"></ion-datetime>
+        </ion-item> 
+
         <ion-button 
           color="primary" 
           expand="block" 

@@ -14,6 +14,7 @@ export class Tab2Page {
     this.birdForm = this.formBuilder.group({
       name: ['', Validators.required],
       notes: [''],
+      date: ['']
     });
   }
 
