@@ -22,7 +22,6 @@ export class Tab1Page {
     });
     modal.onDidDismiss().then((data) => {
       if (data.data !== false) {
-        console.log(data);
         this.birds.push(data.data);
         console.log(this.birds);
       } else {

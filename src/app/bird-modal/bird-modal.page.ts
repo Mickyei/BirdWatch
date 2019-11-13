@@ -12,6 +12,7 @@ import { Bird } from '../interfaces/interface.bird';
 })
 export class BirdModalPage implements OnInit {
   private birdForm: FormGroup;
+  private newBird: Bird;
 
   constructor(public modalCtrl: ModalController, private formBuilder: FormBuilder) {
     this.birdForm = this.formBuilder.group({
@@ -30,6 +31,10 @@ export class BirdModalPage implements OnInit {
   }
 
   logForm() {
-    this.modalCtrl.dismiss(this.birdForm.value);
+    const newBird = this.birdForm.value;
+    const date = new Date();
+    newBird.date = date;
+    console.log(newBird);
+    this.modalCtrl.dismiss(newBird);
   }
 }

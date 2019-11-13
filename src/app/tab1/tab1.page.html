@@ -9,5 +9,19 @@
 </ion-header>
 
 <ion-content>
-  <ion-fab-button (click)="showModal()"><ion-icon name="add"></ion-icon></ion-fab-button>
+  <ion-fab-button (click)="showModal()" class="addButton"><ion-icon name="add"></ion-icon></ion-fab-button>
+  <div class="emptyBanner" *ngIf="birds.length === 0">
+    <h3>No observations yet :(</h3>
+  </div>
+
+  <div class="birdsList">
+    <ion-list>
+      <ion-item *ngFor="let bird of birds" text-wrap>
+            <h5>{{bird.name}}</h5>
+            <p>{{bird.notes}}</p>
+            <p>{{bird.date.toLocaleString()}}</p>
+      </ion-item>
+  
+    </ion-list>
+  </div>
 </ion-content>
