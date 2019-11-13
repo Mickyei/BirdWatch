@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { BirdModalPage } from './bird-modal.page';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 const routes: Routes = [
   {

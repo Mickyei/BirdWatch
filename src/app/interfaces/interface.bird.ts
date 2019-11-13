@@ -3,4 +3,5 @@ export interface Bird {
     notes: string;
     date: Date;
     rarity: string;
+    location: Coordinates;
 }

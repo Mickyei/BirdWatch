@@ -1,5 +1,7 @@
 {
   "name": "birdWatchers",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

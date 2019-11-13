@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BirdModalPage } from './bird-modal/bird-modal.page';
 import { BirdModalPageModule } from './bird-modal/bird-modal.module';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { BirdModalPageModule } from './bird-modal/bird-modal.module';
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

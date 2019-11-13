@@ -3,6 +3,7 @@ import { ViewController } from '@ionic/core';
 import { ModalController } from '@ionic/angular';
 import { FormBuilder, FormGroup , Validators , FormControl } from '@angular/forms';
 import { Bird } from '../interfaces/interface.bird';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class BirdModalPage implements OnInit {
   private birdForm: FormGroup;
   private newBird: Bird;
 
-  constructor(public modalCtrl: ModalController, private formBuilder: FormBuilder) {
+  constructor(public modalCtrl: ModalController, private formBuilder: FormBuilder,
+              private geo: Geolocation) {
     this.birdForm = this.formBuilder.group({
       name: ['', Validators.required],
       notes: [''],
@@ -31,10 +33,18 @@ export class BirdModalPage implements OnInit {
   }
 
   logForm() {
-    const newBird = this.birdForm.value;
-    const date = new Date();
-    newBird.date = date;
-    console.log(newBird);
-    this.modalCtrl.dismiss(newBird);
+    this.geo.getCurrentPosition().then((resp) => {
+      // resp.coords.latitude
+      // resp.coords.longitude
+      const newBird = this.birdForm.value;
+      const date = new Date();
+      newBird.date = date;
+      newBird.location = resp.coords;
+      console.log(newBird);
+      this.modalCtrl.dismiss(newBird);
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
+
   }
 }
