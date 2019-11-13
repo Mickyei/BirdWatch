@@ -1,26 +1,38 @@
-<ion-header>
+<ion-header class="header">
   <ion-toolbar>
 
     <ion-title>
         <ion-icon name="eye"></ion-icon>
-      Bird Watchers Anonymous
+      Bird Watchers
     </ion-title>
+    <h3 class="addButton" (click)="showModal()"><ion-icon name="add"></ion-icon></h3>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-fab-button (click)="showModal()" class="addButton"><ion-icon name="add"></ion-icon></ion-fab-button>
+
+ 
   <div class="emptyBanner" *ngIf="birds.length === 0">
     <h3>No observations yet :(</h3>
   </div>
 
   <div class="birdsList">
     <ion-list>
-      <ion-item *ngFor="let bird of birds" text-wrap>
-            <h5>{{bird.name}}</h5>
-            <p>{{bird.notes}}</p>
-            <p>{{bird.date.toLocaleString()}}</p>
-      </ion-item>
+
+
+      <ion-card *ngFor="let bird of birds">
+          <ion-card-header>
+            <ion-card-subtitle>
+                {{bird.date.toLocaleString()}}
+            </ion-card-subtitle>
+            <ion-card-title>
+              {{bird.name}}
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+              {{bird.notes}}
+          </ion-card-content>
+      </ion-card>
   
     </ion-list>
   </div>

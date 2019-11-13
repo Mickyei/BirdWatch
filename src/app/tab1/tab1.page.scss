@@ -4,5 +4,17 @@
 }
 
 .addButton {
-  margin-top: 10px;
+ 
+  float:right;
+  color:blue;
+  font-size:2rem;
+  margin-right: 10px;
+}
+
+.buttonContainer {
+  width: 100%;
+}
+
+.emptyBanner {
+  text-align: center;
 }
