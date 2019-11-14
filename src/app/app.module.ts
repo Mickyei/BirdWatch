@@ -13,12 +13,14 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BirdModalPage } from './bird-modal/bird-modal.page';
 import { BirdModalPageModule } from './bird-modal/bird-modal.module';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
   declarations: [AppComponent, BirdModalPage],
   entryComponents: [BirdModalPage],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), IonicStorageModule.forRoot(),
+          AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [
     StatusBar,
     SplashScreen,

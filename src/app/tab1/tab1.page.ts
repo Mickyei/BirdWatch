@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Bird } from '../interfaces/interface.bird';
 import { BirdModalPage } from '../bird-modal/bird-modal.page';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-tab1',
@@ -11,7 +12,7 @@ import { BirdModalPage } from '../bird-modal/bird-modal.page';
 export class Tab1Page {
   birds: Bird[];
 
-  constructor(public modalController: ModalController) {
+  constructor(public modalController: ModalController, private storage: Storage) {
     this.birds = [];
   }
 
@@ -22,8 +23,7 @@ export class Tab1Page {
     });
     modal.onDidDismiss().then((data) => {
       if (data.data !== false) {
-        this.birds.push(data.data);
-        console.log(this.birds);
+        this.birds.unshift(data.data);
       } else {
         console.log('Adding canceled');
       }
@@ -32,5 +32,9 @@ export class Tab1Page {
     return await modal.present();
   }
 
+  saveBird(bird) {
+    this.storage.set(bird.date.getMilliseconds().toString(), bird);
+    console.log(bird.date.getMilliseconds().toString() + 'saved');
+  }
 
 }

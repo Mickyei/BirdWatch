@@ -24,6 +24,7 @@
           <ion-card-header>
             <ion-card-subtitle color="primary">
                 {{bird.date.toLocaleString()}}
+                <div class="saveButton" (click)="saveBird(bird)"><ion-icon name ="save"></ion-icon></div>
             </ion-card-subtitle>
             <ion-card-subtitle color="secondary">
               Latitude: {{bird.location.latitude}}

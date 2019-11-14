@@ -3,7 +3,32 @@
     <ion-title>
       Saved observations
     </ion-title>
+    <ion-text (click)="clear()" color="primary">
+        Clear
+    </ion-text>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-card *ngFor="let bird of savedBirds">
+    <ion-card-header>
+      <ion-card-subtitle color="primary">
+          {{bird.date.toLocaleString()}}
+          <div class="removeButton" (click)="removeBird(bird)"><ion-icon name ="trash"></ion-icon></div>
+      </ion-card-subtitle>
+      <ion-card-subtitle color="secondary">
+        Latitude: {{bird.location.latitude}}
+      </ion-card-subtitle>
+      <ion-card-subtitle color="secondary">
+          Longitude: {{bird.location.longitude}}
+        </ion-card-subtitle>
+      <ion-card-title color="danger">
+        {{bird.name}}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        {{bird.notes}}
+    </ion-card-content>
+</ion-card>
+</ion-content>
