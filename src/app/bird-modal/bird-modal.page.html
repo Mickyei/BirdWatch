@@ -6,7 +6,7 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="birdForm" (ngSubmit)="logForm()" padding-right>
+  <form [formGroup]="birdForm" padding-right>
     <ion-item>
       <ion-label position="floating">Bird name</ion-label>
       <ion-input type="text" formControlName="name" required></ion-input>
@@ -15,11 +15,36 @@
       <ion-label position="floating">Added notes</ion-label>
       <ion-textarea type="text" formControlName="notes" ></ion-textarea>
     </ion-item>
-    <!-- TODO DATE PICKER JA RARITY RADIO -->
-    <ion-button 
+ 
+    
+</form>
+<ion-list>
+  <ion-radio-group [(ngModel)]="birdRarity">
+    <ion-list-header>
+      <ion-label>Rarity</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Common</ion-label>
+      <ion-radio slot="start" value="Common" checked></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Rare</ion-label>
+      <ion-radio slot="start" value="Rare"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Extremely Rare</ion-label>
+      <ion-radio slot="start" value="Extremely Rare"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-list>
+
+<ion-button 
       color="primary" 
       expand="block" 
       [disabled]="!birdForm.valid" 
       (click)="logForm()">Add observation</ion-button>
-</form>
+
 </ion-content>

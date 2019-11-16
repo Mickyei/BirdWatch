@@ -14,6 +14,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 export class BirdModalPage implements OnInit {
   private birdForm: FormGroup;
   private newBird: Bird;
+  private birdRarity: string;
 
   constructor(public modalCtrl: ModalController, private formBuilder: FormBuilder,
               private geo: Geolocation) {
@@ -34,12 +35,12 @@ export class BirdModalPage implements OnInit {
 
   logForm() {
     this.geo.getCurrentPosition().then((resp) => {
-      // resp.coords.latitude
-      // resp.coords.longitude
       const newBird = this.birdForm.value;
       const date = new Date();
       newBird.date = date;
-      newBird.location = resp.coords;
+      newBird.latitude = resp.coords.latitude;
+      newBird.longitude = resp.coords.longitude;
+      newBird.rarity = this.birdRarity;
       console.log(newBird);
       this.modalCtrl.dismiss(newBird);
      }).catch((error) => {

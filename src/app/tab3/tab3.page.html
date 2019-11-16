@@ -18,14 +18,17 @@
           <div class="removeButton" (click)="removeBird(bird)"><ion-icon name ="trash"></ion-icon></div>
       </ion-card-subtitle>
       <ion-card-subtitle color="secondary">
-        Latitude: {{bird.location.latitude}}
+        Latitude: {{bird.latitude}}
       </ion-card-subtitle>
       <ion-card-subtitle color="secondary">
-          Longitude: {{bird.location.longitude}}
+          Longitude: {{bird.longitude}}
         </ion-card-subtitle>
       <ion-card-title color="danger">
         {{bird.name}}
       </ion-card-title>
+      <ion-card-subtitle color="tertiary">
+        {{bird.rarity}}
+      </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
         {{bird.notes}}

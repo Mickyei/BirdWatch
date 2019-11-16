@@ -32,6 +32,7 @@ export class Tab1Page {
     return await modal.present();
   }
 
+  // Saves the new entry using Local Storage
   saveBird(bird) {
     this.storage.set(bird.date.getMilliseconds().toString(), bird);
     console.log(bird.date.getMilliseconds().toString() + 'saved');
