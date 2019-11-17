@@ -26,7 +26,6 @@ export class Tab3Page {
 
   ionViewWillEnter() {
     this.getBirds();
-    console.log('Will enter');
   }
 
   // Clears Local Storage.
