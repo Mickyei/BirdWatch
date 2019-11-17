@@ -35,7 +35,6 @@ export class Tab1Page {
   // Saves the new entry using Local Storage
   saveBird(bird) {
     this.storage.set(bird.date.getMilliseconds().toString(), bird);
-    console.log(bird.date.getMilliseconds().toString() + 'saved');
   }
 
 }

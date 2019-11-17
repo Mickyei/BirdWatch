@@ -24,9 +24,7 @@ export class Tab3Page {
   }
 
   ionViewWillEnter() {
-    this.getBirds().then(data => {
-      console.log(this.savedBirds);
-    });
+    this.getBirds();
     console.log('Will enter');
   }
 
