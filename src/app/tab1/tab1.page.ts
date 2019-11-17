@@ -16,11 +16,12 @@ export class Tab1Page {
     this.birds = [];
   }
 
-
+  // Creates a modal with a form for a new observation.
   async showModal() {
     const modal = await this.modalController.create({
       component: BirdModalPage
     });
+
     modal.onDidDismiss().then((data) => {
       if (data.data !== false) {
         this.birds.unshift(data.data);

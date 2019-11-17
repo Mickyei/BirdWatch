@@ -29,10 +29,12 @@ export class BirdModalPage implements OnInit {
   ngOnInit() {
   }
 
+  // Dismisses the modal without passing the new observation.
   cancel() {
     this.modalCtrl.dismiss(false);
   }
 
+  // Dismisses the modal and passes the data from the observation.
   logForm() {
     this.geo.getCurrentPosition().then((resp) => {
       const newBird = this.birdForm.value;

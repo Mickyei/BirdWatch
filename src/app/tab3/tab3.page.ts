@@ -13,9 +13,9 @@ export class Tab3Page {
 
   constructor(private storage: Storage) {
     this.savedBirds = [];
-    // this.getBirds();
   }
 
+  // Fetches the saved observations from Local Storage.
   async getBirds() {
     this.savedBirds = [];
     this.storage.forEach( (value, key, index) => {
@@ -23,16 +23,19 @@ export class Tab3Page {
     });
   }
 
+
   ionViewWillEnter() {
     this.getBirds();
     console.log('Will enter');
   }
 
+  // Clears Local Storage.
   clear() {
     this.storage.clear();
     this.savedBirds = [];
   }
 
+  // Removes an observation from Local Storage.
   removeBird(bird: Bird) {
     const birdDate = new Date(bird.date);
     this.storage.remove(birdDate.getMilliseconds().toString());
